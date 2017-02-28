@@ -93,7 +93,7 @@ class filter_codepen extends moodle_text_filter {
             self::$globalconfig = get_config('filter_codepen');
         }
     }
-    
+
     /**
      * Given some text this function converts any URLs it finds into embedded codepens.
      *
@@ -114,30 +114,29 @@ class filter_codepen extends moodle_text_filter {
         if (!isset($unicoderegexp)) {
             $unicoderegexp = @preg_match('/\pL/u', 'a'); // This will fail silently, returning false,
         }
-        
-		$regex = '((http://)?)(codepen.io\/)([a-zA-Z0-9]+)(\/pen\/)([a-zA-Z0-9]+)';
+
+        $regex = '((https?://)?)(codepen.io\/)([a-zA-Z0-9]+)(\/pen\/)([a-zA-Z0-9]+)';
 
         if ($unicoderegexp) {
             $regex = '#' . $regex . '#ui';
         } else {
             $regex = '#' . preg_replace(array('\pLl', '\PL'), 'a-z', $regex) . '#i';
         }
-        
+
         //Get the height from the settings page
         $height = get_config('filter_codepen', 'height');
-        
+
         //Make sure that the value is set or set the default
         if (($height === 0) || (empty($height))) {
 	        $height = 268;
         }
 
-       	$text = preg_replace($regex, '<p data-height="' . $height . '" data-theme-id="0" data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">See the pen <a href="$0">$0</a> by (<a href="http://$3$4">@$4</a>) on <a href="http://$3">CodePen</a></p>
+       	$text = preg_replace($regex, '<p data-height="' . $height . '" data-theme-id="0" data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">See the pen <a href="$0">$0</a> by (<a href="https://$3$4">@$4</a>) on <a href="https://$3">CodePen</a></p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>', $text);
 
 		if (!empty($ignoretags)) {
             $ignoretags = array_reverse($ignoretags); // Reversed so "progressive" str_replace() will solve some nesting problems.
             $text = str_replace(array_keys($ignoretags),$ignoretags,$text);
         }
-
     }
 }
