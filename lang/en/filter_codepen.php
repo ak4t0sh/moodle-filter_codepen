@@ -17,10 +17,10 @@
 /**
  * plugin details
  *
- * @package		filter
- * @subpackage	codepen
- * @copyright	2014 Danny Wahl www.iyWare.com
- * @license		http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package filter
+ * @subpackage codepen
+ * @copyright 2014 Danny Wahl www.iyWare.com
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 $string['filtername'] = 'CodePen';

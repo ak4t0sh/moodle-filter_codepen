@@ -17,10 +17,10 @@
 /**
  * plugin details
  *
- * @package		filter
- * @subpackage	codepen
- * @copyright	2014 Danny Wahl www.iyWare.com
- * @license		http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package filter
+ * @subpackage codepen
+ * @copyright 2014 Danny Wahl www.iyWare.com
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -75,7 +75,7 @@ class filter_codepen extends moodle_text_filter {
         if (is_null($name)) {
             return self::$globalconfig;
 
-        } elseif (array_key_exists($name, self::$globalconfig)) {
+        } else if (array_key_exists($name, self::$globalconfig)) {
             return self::$globalconfig->{$name};
 
         } else {
@@ -100,15 +100,15 @@ class filter_codepen extends moodle_text_filter {
      * @param string $text Passed in by reference. The string to be searched for urls.
      */
     protected function convert_urls_into_codepens(&$text) {
-        //I've added img tags to this list of tags to ignore.
-        //See MDL-21168 for more info. A better way to ignore tags whether or not
-        //they are escaped partially or completely would be desirable. For example:
-        //<a href="blah">
-        //&lt;a href="blah"&gt;
-        //&lt;a href="blah">
+        // I've added img tags to this list of tags to ignore.
+        // See MDL-21168 for more info. A better way to ignore tags whether or not
+        // they are escaped partially or completely would be desirable. For example:
+        // <a href="blah">
+        // &lt;a href="blah"&gt;
+        // &lt;a href="blah">
         $filterignoretagsopen  = array('<a\s[^>]+?>');
         $filterignoretagsclose = array('</a>');
-        filter_save_ignore_tags($text,$filterignoretagsopen,$filterignoretagsclose,$ignoretags);
+        filter_save_ignore_tags($text, $filterignoretagsopen, $filterignoretagsclose, $ignoretags);
 
         static $unicoderegexp;
         if (!isset($unicoderegexp)) {
@@ -123,20 +123,20 @@ class filter_codepen extends moodle_text_filter {
             $regex = '#' . preg_replace(array('\pLl', '\PL'), 'a-z', $regex) . '#i';
         }
 
-        //Get the height from the settings page
+        // Get the height from the settings page.
         $height = get_config('filter_codepen', 'height');
 
-        //Make sure that the value is set or set the default
+        // Make sure that the value is set or set the default.
         if (($height === 0) || (empty($height))) {
-	        $height = 268;
+            $height = 268;
         }
 
        	$text = preg_replace($regex, '<p data-height="' . $height . '" data-theme-id="0" data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">See the pen <a href="$0">$0</a> by (<a href="https://$3$4">@$4</a>) on <a href="https://$3">CodePen</a></p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>', $text);
 
-		if (!empty($ignoretags)) {
+        if (!empty($ignoretags)) {
             $ignoretags = array_reverse($ignoretags); // Reversed so "progressive" str_replace() will solve some nesting problems.
-            $text = str_replace(array_keys($ignoretags),$ignoretags,$text);
+            $text = str_replace(array_keys($ignoretags), $ignoretags, $text);
         }
     }
 }

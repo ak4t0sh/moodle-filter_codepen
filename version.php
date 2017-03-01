@@ -19,14 +19,14 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * plugin details
  *
- * @package		filter
- * @subpackage	codepen
- * @copyright	2014 Danny Wahl www.iyWare.com
- * @license		http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package filter
+ * @subpackage codepen
+ * @copyright 2014 Danny Wahl www.iyWare.com
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->component = 'filter_codepen';	// Full name of the plugin (used for diagnostics)
-$plugin->version   = 2014010702;		// The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2013111800;		// Requires this Moodle version
-$plugin->release   = '2.6.02';			// Human-friendly version name http://docs.moodle.org/dev/Releases
-$plugin->maturity  = MATURITY_STABLE;	// This version's maturity level
+$plugin->component = 'filter_codepen'; // Full name of the plugin (used for diagnostics)
+$plugin->version   = 2014010702;       // The current plugin version (Date: YYYYMMDDXX)
+$plugin->requires  = 2013111800;       // Requires this Moodle version
+$plugin->release   = '2.6.02';         // Human-friendly version name http://docs.moodle.org/dev/Releases
+$plugin->maturity  = MATURITY_STABLE;  // This version's maturity level
