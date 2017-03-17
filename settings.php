@@ -42,6 +42,10 @@ if ($ADMIN->fulltree) {
                 '268',
                 PARAM_INT,
                 3));
+    $settings->add(new admin_setting_configselect('filter_codepen/embedversion',
+        get_string('settingembedversion', 'filter_codepen'),
+        get_string('settingembedversion_desc', 'filter_codepen'),
+        1, array(1 => 1, 2 => 2)));
 
     $settings->add(new admin_setting_heading('filter_codepen/credits',
                 get_string('settingcredits', 'filter_codepen'),
