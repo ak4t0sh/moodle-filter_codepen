@@ -47,6 +47,13 @@ if ($ADMIN->fulltree) {
         get_string('settingembedversion_desc', 'filter_codepen'),
         1, array(1 => 1, 2 => 2)));
 
+    $pen = 'http://codepen.io/thedannywahl/pen/Gbdaj';
+    $filter = new filter_codepen(context_system::instance(), array('formats' => array(FORMAT_HTML)));
+    $pen = $filter->filter($pen, array('originalformat' => FORMAT_HTML));
+    $settings->add(new admin_setting_heading('filter_codepen/preview',
+                get_string('preview'),
+                $pen));
+
     $settings->add(new admin_setting_heading('filter_codepen/credits',
                 get_string('settingcredits', 'filter_codepen'),
                 get_string('settingcredits_desc', 'filter_codepen')));

@@ -50,7 +50,10 @@ class filter_codepen extends moodle_text_filter {
             // be stripped. therefore, we do nothing
             return $text;
         }
-        if (in_array($options['originalformat'], explode(',', $this->get_global_config('formats')))) {
+        if (!isset($this->localconfig['formats'])) {
+            $this->localconfig['formats'] = explode(',', $this->get_global_config('formats'));
+        }
+        if (in_array($options['originalformat'], $this->localconfig['formats'])) {
             $this->convert_urls_into_codepens($text);
         }
         return $text;
