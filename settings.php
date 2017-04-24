@@ -26,6 +26,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once(__DIR__ . '/filter.php');
 if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_heading('filter_codepen/info',
