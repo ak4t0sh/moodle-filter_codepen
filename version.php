@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * plugin details
  *
@@ -25,8 +23,10 @@ defined('MOODLE_INTERNAL') || die();
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
+
 $plugin->component = 'filter_codepen'; // Full name of the plugin (used for diagnostics)
 $plugin->version   = 2014010702;       // The current plugin version (Date: YYYYMMDDXX)
 $plugin->requires  = 2013111800;       // Requires this Moodle version
 $plugin->release   = '2.6.02';         // Human-friendly version name http://docs.moodle.org/dev/Releases
-$plugin->maturity  = MATURITY_STABLE;  // This version's maturity level
+$plugin->maturity  = MATURITY_STABLE;  // This version's maturity level.

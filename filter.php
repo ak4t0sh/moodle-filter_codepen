@@ -45,9 +45,9 @@ class filter_codepen extends moodle_text_filter {
      */
     public function filter($text, array $options = array()) {
         if (!isset($options['originalformat'])) {
-            // if the format is not specified, we are probably called by {@see format_string()}
-            // in that case, it would be dangerous to replace URL with the pen because it could
-            // be stripped. therefore, we do nothing
+            // If the format is not specified, we are probably called by {@see format_string()}
+            // in that case, it would be dangerous to replace URL with the pen because it could be stripped.
+            // Therefore, we do nothing.
             return $text;
         }
         if (!isset($this->localconfig['formats'])) {
@@ -58,10 +58,6 @@ class filter_codepen extends moodle_text_filter {
         }
         return $text;
     }
-
-    ////////////////////////////////////////////////////////////////////////////
-    // internal implementation starts here
-    ////////////////////////////////////////////////////////////////////////////
 
     /**
      * Returns the global filter setting
@@ -115,7 +111,7 @@ class filter_codepen extends moodle_text_filter {
 
         static $unicoderegexp;
         if (!isset($unicoderegexp)) {
-            $unicoderegexp = @preg_match('/\pL/u', 'a'); // This will fail silently, returning false,
+            $unicoderegexp = @preg_match('/\pL/u', 'a'); // This will fail silently, returning false.
         }
 
         $regex = '((https?://)?)(codepen.io\/)([a-zA-Z0-9]+)(\/pen\/)([a-zA-Z0-9]+)';
@@ -135,7 +131,10 @@ class filter_codepen extends moodle_text_filter {
         }
         $embedversion = get_config('filter_codepen', 'embedversion');
 
-       	$text = preg_replace($regex, '<p data-embed-version="' . $embedversion . '" data-height="' . $height . '" data-theme-id="0" data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">See the pen <a href="$0">$0</a> by (<a href="https://$3$4">@$4</a>) on <a href="https://$3">CodePen</a></p>
+        $text = preg_replace($regex, '<p data-embed-version="' . $embedversion .
+            '" data-height="' . $height .
+            '" data-theme-id="0" data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">
+            See the pen <a href="$0">$0</a> by (<a href="https://$3$4">@$4</a>) on <a href="https://$3">CodePen</a></p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>', $text);
 
         if (!empty($ignoretags)) {
