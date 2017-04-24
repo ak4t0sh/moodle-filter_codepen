@@ -19,6 +19,7 @@
  *
  * @package filter
  * @subpackage codepen
+ * @copyright 2017 Arnaud Trouvé <ak4t0sh@free.fr>
  * @copyright 2014 Danny Wahl www.iyWare.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
