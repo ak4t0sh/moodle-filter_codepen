@@ -49,6 +49,16 @@ if ($ADMIN->fulltree) {
         get_string('settingembedversion_desc', 'filter_codepen'),
         2, array(1 => 1, 2 => 2)));
 
+    $settings->add(new admin_setting_configselect('filter_codepen/embedtheme',
+        get_string('settingembedtheme', 'filter_codepen'),
+        get_string('settingembedtheme_desc', 'filter_codepen'),
+        'dark',
+        [
+            'dark' => get_string('settingembedtheme_dark', 'filter_codepen'),
+            'light' => get_string('settingembedtheme_light', 'filter_codepen')
+        ]
+    ));
+
     $pen = 'http://codepen.io/thedannywahl/pen/Gbdaj';
     $filter = new filter_codepen(context_system::instance(), array('formats' => array(FORMAT_HTML)));
     $pen = $filter->filter($pen, array('originalformat' => FORMAT_HTML));
