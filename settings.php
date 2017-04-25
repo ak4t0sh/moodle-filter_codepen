@@ -47,7 +47,7 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configselect('filter_codepen/embedversion',
         get_string('settingembedversion', 'filter_codepen'),
         get_string('settingembedversion_desc', 'filter_codepen'),
-        1, array(1 => 1, 2 => 2)));
+        2, array(1 => 1, 2 => 2)));
 
     $pen = 'http://codepen.io/thedannywahl/pen/Gbdaj';
     $filter = new filter_codepen(context_system::instance(), array('formats' => array(FORMAT_HTML)));
