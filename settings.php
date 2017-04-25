@@ -33,6 +33,10 @@ if ($ADMIN->fulltree) {
                 get_string('settingheading', 'filter_codepen'),
                 get_string('settingheading_info', 'filter_codepen')));
 
+    // Settings.
+    $settings->add(new admin_setting_heading('filter_codepen/settings',
+        get_string('settings'),
+        ''));
     $settings->add(new admin_setting_configmulticheckbox('filter_codepen/formats',
             get_string('settingformats', 'filter_codepen'),
             get_string('settingformats_desc', 'filter_codepen'),
@@ -57,6 +61,62 @@ if ($ADMIN->fulltree) {
             'dark' => get_string('settingembedtheme_dark', 'filter_codepen'),
             'light' => get_string('settingembedtheme_light', 'filter_codepen')
         ]
+    ));
+    $settings->add(new admin_setting_configmulticheckbox('filter_codepen/defaulttab',
+        get_string('settingdefaulttab', 'filter_codepen'),
+        get_string('settingdefaulttab_desc', 'filter_codepen'),
+        ['result' => 1],
+        [
+            'css' => get_string('settingdefaulttab_css', 'filter_codepen'),
+            'html' => get_string('settingdefaulttab_html', 'filter_codepen'),
+            'js' => get_string('settingdefaulttab_js', 'filter_codepen'),
+            'result' => get_string('settingdefaulttab_result', 'filter_codepen')
+        ]));
+
+    // Theme override settings.
+    $settings->add(new admin_setting_heading('filter_codepen/theme_override',
+        get_string('theme_override', 'filter_codepen'),
+        get_string('theme_override_desc', 'filter_codepen')));
+
+    $settings->add(new admin_setting_configselect('filter_codepen/embedborder',
+        get_string('settingembedborder', 'filter_codepen'),
+        get_string('settingembedborder_desc', 'filter_codepen'),
+        'none',
+        [
+            'none' => get_string('none'),
+            'thin' => get_string('settingembedborder_thin', 'filter_codepen'),
+            'thick' => get_string('settingembedborder_thick', 'filter_codepen')
+        ]
+    ));
+    $settings->add(new admin_setting_configcolourpicker('filter_codepen/embedbordercolor',
+        get_string('settingembedbordercolor', 'filter_codepen'),
+        get_string('settingembedbordercolor_desc', 'filter_codepen'),
+        ''
+    ));
+    $settings->add(new admin_setting_configcolourpicker('filter_codepen/embedtabbarcolor',
+        get_string('settingembedtabbarcolor', 'filter_codepen'),
+        get_string('settingembedtabbarcolor_desc', 'filter_codepen'),
+        ''
+    ));
+    $settings->add(new admin_setting_configcolourpicker('filter_codepen/embedtablinkcolor',
+        get_string('settingembedtablinkcolor', 'filter_codepen'),
+        get_string('settingembedtablinkcolor_desc', 'filter_codepen'),
+        ''
+    ));
+    $settings->add(new admin_setting_configcolourpicker('filter_codepen/embedactivetabcolor',
+        get_string('settingembedactivetabcolor', 'filter_codepen'),
+        get_string('settingembedactivetabcolor_desc', 'filter_codepen'),
+        ''
+    ));
+    $settings->add(new admin_setting_configcolourpicker('filter_codepen/embedactivelinkcolor',
+        get_string('settingembedactivelinkcolor', 'filter_codepen'),
+        get_string('settingembedactivelinkcolor_desc', 'filter_codepen'),
+        ''
+    ));
+    $settings->add(new admin_setting_configcolourpicker('filter_codepen/embedlinklogocolor',
+        get_string('settingembedlinklogocolor', 'filter_codepen'),
+        get_string('settingembedlinklogocolor_desc', 'filter_codepen'),
+        ''
     ));
 
     $pen = 'http://codepen.io/thedannywahl/pen/Gbdaj';

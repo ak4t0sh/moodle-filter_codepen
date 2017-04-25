@@ -132,10 +132,54 @@ class filter_codepen extends moodle_text_filter {
         }
         $embedversion = get_config('filter_codepen', 'embedversion');
         $embedtheme = get_config('filter_codepen', 'embedtheme');
+        $defaulttabs = get_config('filter_codepen', 'defaulttab');
+
+        // Theme override settings.
+        $embedborder = get_config('filter_codepen', 'embedborder');
+        if ($embedborder != "none") {
+            $embedborder = 'data-border="' . $embedborder . '" ';
+        } else {
+            $embedborder = '';
+        }
+        $embedbordercolor = get_config('filter_codepen', 'embedbordercolor');
+        if (!empty($embedborder) && !empty($embedbordercolor)) {
+            $embedbordercolor = 'data-border-color="' . $embedbordercolor . '" ';
+        } else {
+            $embedbordercolor = '';
+        }
+        $embedtabbarcolor = get_config('filter_codepen', 'embedtabbarcolor');
+        if (!empty($embedtabbarcolor)) {
+            $embedtabbarcolor = 'data-tab-bar-color="' . $embedtabbarcolor . '" ';
+        }
+        $embedtablinkcolor = get_config('filter_codepen', 'embedtablinkcolor');
+        if (!empty($embedtablinkcolor)) {
+            $embedtablinkcolor = 'data-tab-link-color="' . $embedtablinkcolor . '" ';
+        }
+        $embedactivetabcolor = get_config('filter_codepen', 'embedactivetabcolor');
+        if (!empty($embedactivetabcolor)) {
+            $embedactivetabcolor = 'data-active-tab-color="' . $embedactivetabcolor . '" ';
+        }
+        $embedactivelinkcolor = get_config('filter_codepen', 'embedactivelinkcolor');
+        if (!empty($embedactivelinkcolor)) {
+            $embedactivelinkcolor = 'data-active-link-color="' . $embedactivelinkcolor . '" ';
+        }
+        $embedlinklogocolor = get_config('filter_codepen', 'embedlinklogocolor');
+        if (!empty($embedlinklogocolor)) {
+            $embedlinklogocolor = 'data-link-logo-color="' . $embedlinklogocolor . '" ';
+        }
 
         $text = preg_replace($regex, '<p data-embed-version="' . $embedversion .
+            '" data-default-tab="' . $defaulttabs .
             '" data-height="' . $height .
-            '" data-theme-id="' . $embedtheme . '" data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">
+            '" data-theme-id="' . $embedtheme . '" '
+            . $embedborder
+            . $embedbordercolor
+            . $embedtabbarcolor
+            . $embedtablinkcolor
+            . $embedactivetabcolor
+            . $embedactivelinkcolor
+            . $embedlinklogocolor . '
+             data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">
             See the pen <a href="$0">$0</a> by (<a href="https://$3$4">@$4</a>) on <a href="https://$3">CodePen</a></p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>', $text);
 
