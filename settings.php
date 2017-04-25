@@ -36,7 +36,7 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configmulticheckbox('filter_codepen/formats',
             get_string('settingformats', 'filter_codepen'),
             get_string('settingformats_desc', 'filter_codepen'),
-            array(FORMAT_HTML => 1, FORMAT_MARKDOWN => 1, FORMAT_MOODLE => 1), format_text_menu()));
+            [FORMAT_HTML => 1, FORMAT_MARKDOWN => 1, FORMAT_MOODLE => 1], format_text_menu()));
 
     $settings->add(new admin_setting_configtext('filter_codepen/height',
                 get_string('settingheight', 'filter_codepen'),
@@ -47,7 +47,7 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configselect('filter_codepen/embedversion',
         get_string('settingembedversion', 'filter_codepen'),
         get_string('settingembedversion_desc', 'filter_codepen'),
-        2, array(1 => 1, 2 => 2)));
+        2, [1 => 1, 2 => 2]));
 
     $settings->add(new admin_setting_configselect('filter_codepen/embedtheme',
         get_string('settingembedtheme', 'filter_codepen'),
@@ -60,8 +60,8 @@ if ($ADMIN->fulltree) {
     ));
 
     $pen = 'http://codepen.io/thedannywahl/pen/Gbdaj';
-    $filter = new filter_codepen(context_system::instance(), array('formats' => array(FORMAT_HTML)));
-    $pen = $filter->filter($pen, array('originalformat' => FORMAT_HTML));
+    $filter = new filter_codepen(context_system::instance(), ['formats' => [FORMAT_HTML]]);
+    $pen = $filter->filter($pen, ['originalformat' => FORMAT_HTML]);
     $settings->add(new admin_setting_heading('filter_codepen/preview',
                 get_string('preview'),
                 $pen));

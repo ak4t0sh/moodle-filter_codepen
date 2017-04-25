@@ -44,7 +44,7 @@ class filter_codepen extends moodle_text_filter {
      * @param array $options filter options
      * @return string text after processing
      */
-    public function filter($text, array $options = array()) {
+    public function filter($text, array $options = []) {
         if (!isset($options['originalformat'])) {
             // If the format is not specified, we are probably called by {@see format_string()}
             // in that case, it would be dangerous to replace URL with the pen because it could be stripped.
@@ -106,8 +106,8 @@ class filter_codepen extends moodle_text_filter {
         // <a href="blah">
         // &lt;a href="blah"&gt;
         // &lt;a href="blah">
-        $filterignoretagsopen  = array('<a\s[^>]+?>');
-        $filterignoretagsclose = array('</a>');
+        $filterignoretagsopen  = ['<a\s[^>]+?>'];
+        $filterignoretagsclose = ['</a>'];
         filter_save_ignore_tags($text, $filterignoretagsopen, $filterignoretagsclose, $ignoretags);
 
         static $unicoderegexp;
@@ -120,7 +120,7 @@ class filter_codepen extends moodle_text_filter {
         if ($unicoderegexp) {
             $regex = '#' . $regex . '#ui';
         } else {
-            $regex = '#' . preg_replace(array('\pLl', '\PL'), 'a-z', $regex) . '#i';
+            $regex = '#' . preg_replace(['\pLl', '\PL'], 'a-z', $regex) . '#i';
         }
 
         // Get the height from the settings page.
