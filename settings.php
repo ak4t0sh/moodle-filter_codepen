@@ -64,5 +64,5 @@ if ($ADMIN->fulltree) {
     $pen = $filter->filter($pen, ['originalformat' => FORMAT_HTML]);
     $settings->add(new admin_setting_heading('filter_codepen/preview',
                 get_string('preview'),
-                $pen));
+                get_string('preview_desc', 'filter_codepen').$pen));
 }
