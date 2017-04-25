@@ -55,8 +55,4 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_heading('filter_codepen/preview',
                 get_string('preview'),
                 $pen));
-
-    $settings->add(new admin_setting_heading('filter_codepen/credits',
-                get_string('settingcredits', 'filter_codepen'),
-                get_string('settingcredits_desc', 'filter_codepen')));
 }
