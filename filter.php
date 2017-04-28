@@ -136,13 +136,10 @@ class filter_codepen extends moodle_text_filter {
 
         // Theme override settings.
         $embedborder = $this->get_global_config('embedborder');
-        if ($embedborder != "none") {
-            $embedborder = 'data-border="' . $embedborder . '" ';
-        } else {
-            $embedborder = '';
-        }
+        $embedborder = 'data-border="' . $embedborder . '" ';
+
         $embedbordercolor = $this->get_global_config('embedbordercolor');
-        if (!empty($embedborder) && !empty($embedbordercolor)) {
+        if (($this->get_global_config('embedborder') != 'none') && !empty($embedbordercolor)) {
             $embedbordercolor = 'data-border-color="' . $embedbordercolor . '" ';
         } else {
             $embedbordercolor = '';
