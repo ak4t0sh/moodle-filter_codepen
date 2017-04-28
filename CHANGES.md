@@ -1,6 +1,6 @@
 ### v3.1-r1.1
 
-* Fix #5 : issue border 
+* Fix #5 : issue concerning border 'none' 
 * Performance improvement
 
 ### v3.1-r1
