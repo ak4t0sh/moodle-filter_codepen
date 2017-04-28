@@ -179,7 +179,7 @@ class filter_codepen extends moodle_text_filter {
             . $embedactivetabcolor
             . $embedactivelinkcolor
             . $embedlinklogocolor . '
-             data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">
+             data-slug-hash="$6" data-user="$4" class="codepen">
             See the pen <a href="$0">$0</a> by (<a href="https://$3$4">@$4</a>) on <a href="https://$3">CodePen</a></p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>', $text);
 
