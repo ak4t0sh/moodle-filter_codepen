@@ -124,46 +124,46 @@ class filter_codepen extends moodle_text_filter {
         }
 
         // Get the height from the settings page.
-        $height = get_config('filter_codepen', 'height');
+        $height = $this->get_global_config('height');
 
         // Make sure that the value is set or set the default.
         if (($height === 0) || (empty($height))) {
             $height = 268;
         }
-        $embedversion = get_config('filter_codepen', 'embedversion');
-        $embedtheme = get_config('filter_codepen', 'embedtheme');
-        $defaulttabs = get_config('filter_codepen', 'defaulttab');
+        $embedversion = $this->get_global_config('embedversion');
+        $embedtheme = $this->get_global_config('embedtheme');
+        $defaulttabs = $this->get_global_config('defaulttab');
 
         // Theme override settings.
-        $embedborder = get_config('filter_codepen', 'embedborder');
+        $embedborder = $this->get_global_config('embedborder');
         if ($embedborder != "none") {
             $embedborder = 'data-border="' . $embedborder . '" ';
         } else {
             $embedborder = '';
         }
-        $embedbordercolor = get_config('filter_codepen', 'embedbordercolor');
+        $embedbordercolor = $this->get_global_config('embedbordercolor');
         if (!empty($embedborder) && !empty($embedbordercolor)) {
             $embedbordercolor = 'data-border-color="' . $embedbordercolor . '" ';
         } else {
             $embedbordercolor = '';
         }
-        $embedtabbarcolor = get_config('filter_codepen', 'embedtabbarcolor');
+        $embedtabbarcolor = $this->get_global_config('embedtabbarcolor');
         if (!empty($embedtabbarcolor)) {
             $embedtabbarcolor = 'data-tab-bar-color="' . $embedtabbarcolor . '" ';
         }
-        $embedtablinkcolor = get_config('filter_codepen', 'embedtablinkcolor');
+        $embedtablinkcolor = $this->get_global_config('embedtablinkcolor');
         if (!empty($embedtablinkcolor)) {
             $embedtablinkcolor = 'data-tab-link-color="' . $embedtablinkcolor . '" ';
         }
-        $embedactivetabcolor = get_config('filter_codepen', 'embedactivetabcolor');
+        $embedactivetabcolor = $this->get_global_config('embedactivetabcolor');
         if (!empty($embedactivetabcolor)) {
             $embedactivetabcolor = 'data-active-tab-color="' . $embedactivetabcolor . '" ';
         }
-        $embedactivelinkcolor = get_config('filter_codepen', 'embedactivelinkcolor');
+        $embedactivelinkcolor = $this->get_global_config('embedactivelinkcolor');
         if (!empty($embedactivelinkcolor)) {
             $embedactivelinkcolor = 'data-active-link-color="' . $embedactivelinkcolor . '" ';
         }
-        $embedlinklogocolor = get_config('filter_codepen', 'embedlinklogocolor');
+        $embedlinklogocolor = $this->get_global_config('embedlinklogocolor');
         if (!empty($embedlinklogocolor)) {
             $embedlinklogocolor = 'data-link-logo-color="' . $embedlinklogocolor . '" ';
         }
