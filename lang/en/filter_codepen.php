@@ -28,6 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'CodePen';
 $string['preview_desc'] = 'Save your settings to see the result.';
+$string['privacy:metadata'] = 'The CodePen plugin does not store any personal data.';
 $string['settingdefaulttab'] = 'Default tabs';
 $string['settingdefaulttab_css'] = 'CSS';
 $string['settingdefaulttab_desc'] = 'Default tabs to display.<br>
