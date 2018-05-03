@@ -1,3 +1,7 @@
+### v3.3-r1.0
+
+* Add privacy implementation / GDPR compliance.
+
 ### v3.1-r1.1
 
 * Fix #5 : issue concerning border 'none' 
