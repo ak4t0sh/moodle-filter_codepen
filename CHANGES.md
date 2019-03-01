@@ -1,3 +1,8 @@
+### 3.4.0
+
+* Fix privacy provider `get_reason` declaration. This leads to drop PHP5 (Moodle 3.3 and prior) support
+* Switch versioning policy to use Semantic Versioning starting from 3.4.0
+
 ### v3.3-r1.0
 
 * Add privacy implementation / GDPR compliance.
