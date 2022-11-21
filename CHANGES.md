@@ -1,3 +1,8 @@
+### 3.4.1
+
+* Add support for URI containing hyphen or underscore character
+* Replacing deprecated `array_key_exists` use
+
 ### 3.4.0
 
 * Fix privacy provider `get_reason` declaration. This leads to drop PHP5 (Moodle 3.3 and prior) support
