@@ -115,7 +115,7 @@ class filter_codepen extends moodle_text_filter {
             $unicoderegexp = @preg_match('/\pL/u', 'a'); // This will fail silently, returning false.
         }
 
-        $regex = '((https?://)?)(codepen.io\/)([a-zA-Z0-9]+)(\/pen\/)([a-zA-Z0-9]+)';
+        $regex = '((https?://)?)(codepen.io\/)([a-zA-Z0-9_-]+)(\/pen\/)([a-zA-Z0-9_-]+)';
 
         if ($unicoderegexp) {
             $regex = '#' . $regex . '#ui';
