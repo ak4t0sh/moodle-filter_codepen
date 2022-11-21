@@ -75,7 +75,7 @@ class filter_codepen extends moodle_text_filter {
         if (is_null($name)) {
             return self::$globalconfig;
 
-        } else if (array_key_exists($name, self::$globalconfig)) {
+        } else if (property_exists(self::$globalconfig, $name)) {
             return self::$globalconfig->{$name};
 
         } else {
