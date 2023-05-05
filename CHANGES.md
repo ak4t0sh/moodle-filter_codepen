@@ -1,3 +1,7 @@
+### 3.4.2
+
+* Add missing array declaration causing issue in PHP 8 environment
+
 ### 3.4.1
 
 * Add support for URI containing hyphen or underscore character
