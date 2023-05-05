@@ -108,6 +108,7 @@ class filter_codepen extends moodle_text_filter {
         // &lt;a href="blah">
         $filterignoretagsopen  = ['<a\s[^>]+?>'];
         $filterignoretagsclose = ['</a>'];
+	$ignoretags = [];
         filter_save_ignore_tags($text, $filterignoretagsopen, $filterignoretagsclose, $ignoretags);
 
         static $unicoderegexp;
