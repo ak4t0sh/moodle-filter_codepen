@@ -1,3 +1,7 @@
+### 3.5.0
+
+* Class refactoring to ensure moodle 4.5+ compatibility (see : MDL-82427)
+
 ### 3.4.2
 
 * Add missing array declaration causing issue in PHP 8 environment
