@@ -26,7 +26,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(__DIR__ . '/filter.php');
 if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_heading('filter_codepen/info',
@@ -120,7 +119,7 @@ if ($ADMIN->fulltree) {
     ));
 
     $pen = 'http://codepen.io/thedannywahl/pen/Gbdaj';
-    $filter = new filter_codepen(context_system::instance(), ['formats' => [FORMAT_HTML]]);
+    $filter = new \filter_codepen\text_filter(context_system::instance(), ['formats' => [FORMAT_HTML]]);
     $pen = $filter->filter($pen, ['originalformat' => FORMAT_HTML]);
     $settings->add(new admin_setting_heading('filter_codepen/preview',
                 get_string('preview'),
