@@ -1,3 +1,9 @@
+### 3.6.0
+
+* Moodle 5.2 compatibility: extend `\core_filters\text_filter` directly instead of legacy `\moodle_text_filter` alias
+* Remove obsolete `class_alias` from `filter.php` (no longer needed since MDL-82427)
+* Bump minimum required Moodle version to 4.5 (2024100700) — supports 4.5+
+
 ### 3.5.0
 
 * Class refactoring to ensure moodle 4.5+ compatibility (see : MDL-82427)
