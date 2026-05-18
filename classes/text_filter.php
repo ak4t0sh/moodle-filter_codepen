@@ -25,9 +25,8 @@
  */
 
 namespace filter_codepen;
-defined('MOODLE_INTERNAL') || die();
 
-class text_filter extends \moodle_text_filter {
+class text_filter extends \core_filters\text_filter {
 
     /**
      * @var array global configuration for this filter
@@ -45,6 +44,7 @@ class text_filter extends \moodle_text_filter {
      * @param array $options filter options
      * @return string text after processing
      */
+    #[\Override]
     public function filter($text, array $options = []) {
         if (!isset($options['originalformat'])) {
             // If the format is not specified, we are probably called by {@see format_string()}
@@ -109,7 +109,7 @@ class text_filter extends \moodle_text_filter {
         // &lt;a href="blah">
         $filterignoretagsopen  = ['<a\s[^>]+?>'];
         $filterignoretagsclose = ['</a>'];
-	$ignoretags = [];
+        $ignoretags = [];
         filter_save_ignore_tags($text, $filterignoretagsopen, $filterignoretagsclose, $ignoretags);
 
         static $unicoderegexp;

@@ -15,10 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * plugin details
+ * File only retained to prevent fatal errors in code that tries to require/include this.
  *
- * @package filter
- * @subpackage codepen
+ * @todo MDL-82708 delete this file as part of Moodle 6.0 development.
+ * @deprecated This file is no longer required in Moodle 4.5+.
+ * @package filter_codepen
  * @copyright 2017 Arnaud Trouvé <moodle@arnaudtrouve.fr>
  * @copyright 2014 Danny Wahl www.iyWare.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,5 +27,4 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-// Class moved. See MDL-82427.
-class_alias(\filter_codepen\text_filter::class, \filter_codepen::class);
+debugging('This file is no longer required in Moodle 4.5+. Please do not include/require it.', DEBUG_DEVELOPER);
